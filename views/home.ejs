@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+     body{
+         background-color: burlywood;
+     }
+     
+         @media only screen and (max-width:768px){
+             .todoContainer{
+             width:80%;
+             margin-left:10%;
+             height:600px;
+             }
+         }
+         @media only screen and (min-width: 768px) {
+        .todoContainer{
+            width:40%;
+            margin-left:30%;
+            height: 700px;
+        }
+        
+      }
+      .todoContainer{
+          margin-top:20px;
+          border-radius: 30px;
+          border: black 1px dotted;
+        
+      }
+
+     
+     
+    </style>
+    
+</head>
+
+<body>
+    <h1 class="text-center ">To Do App</h1>
+    <div class="todoContainer" style="background-color:whitesmoke">
+
+        <form class="form-inline mt-5 mx-auto" action="/" method="POST">
+
+            <div class="form-group mx-sm-3 mb-2" style="width:80%;">
+                <label for="inputPassword2" class="sr-only">Password</label>
+                <input type="text" class="form-control" style="width:100%"  name="todo"
+                 placeholder="Add Todo Here">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">ADD</button>
+        </form>
+        <ul style="font-size: larger;">
+    <% todos.forEach(todo=>{%>
+        <form action="/delete" method="POST"></form>
+            <li><%=todo%>
+                <a href="/delete/<%=todo%>"> <button style="color:red; border:none;">&#10008;</button></a>
+                
+            </li>
+ <%   })      %>  
+           
+
+        </ul>
+
+
+
+    </div>
+    <script>
+        var line = false;
+        function makeLine(){
+            var tick = document.getElementById("tick");
+            
+                var tickLi = tick.parentNode;
+                if(line==false){
+                tickLi.style.textDecoration = "line-through";
+                    line=true;
+            }
+                else{
+                    line=false;
+                tickLi.style.textDecoration= "none";}
+
+            
+        }
+        
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
